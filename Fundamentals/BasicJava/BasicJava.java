@@ -22,8 +22,8 @@ public class BasicJava {
         basic1.printArrayValues(arr);
         basic1.zeroOutNegatives(arr2);
         basic1.zeroOutNegatives(arrD);
-        basic1.maxMinAverage(arr);
-        basic1.maxMinAverage(arrD);
+        System.out.println(basic1.maxMinAverage(arr));
+        System.out.println(basic1.maxMinAverage(arrD));
         basic1.printArrayValues(arr);
         basic1.shitfValues(arr);
         basic1.printArrayValues(arr);
@@ -45,7 +45,7 @@ public class BasicJava {
             System.out.println("New number: "+i+" Sum: "+sum);
         }
     }
-    public void printArrayValues(double[] arr) {
+    public void printArrayValues(double[] arr) {   
         for (int i = 0; i < arr.length; i++) {
             System.out.println("Index: "+i+" Value: "+arr[i]);
         }
@@ -97,7 +97,7 @@ public class BasicJava {
         }
         System.out.println(Arrays.toString(arr));
     }
-    public void maxMinAverage(double[] arr) {
+    public ArrayList<Double> maxMinAverage(double[] arr) {
         double min = arr[0];
         double max  = arr[0];
         double average = 0;
@@ -114,7 +114,7 @@ public class BasicJava {
         result.add(max);
         result.add(min);
         result.add(average/arr.length);
-        System.out.println(result);
+        return result;
     }
     public void shitfValues(double[] arr) {
         for (int i = 0; i < arr.length-1; i++) {
