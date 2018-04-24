@@ -117,10 +117,9 @@ public class BasicJava {
         System.out.println(result);
     }
     public void shitfValues(double[] arr) {
-        double temp = arr[arr.length-1];
-        for (int i = arr.length-1; i > 0; i--) {
-            arr[i]=arr[i-1];
+        for (int i = 0; i < arr.length-1; i++) {
+            arr[i]=arr[i+1];
         }
-        arr[0] = temp;
+        arr[arr.length-1] = 0;
     }
 }
