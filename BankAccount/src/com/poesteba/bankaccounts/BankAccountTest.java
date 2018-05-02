@@ -6,7 +6,7 @@ public class BankAccountTest {
 		BankAccount account1 = new BankAccount();  // empty account
 		BankAccount account2 = new BankAccount(250.45,120.50);  // savings and checking balances
 		BankAccount account3 = new BankAccount("savings", 275);  // only savings
-		BankAccount account4 = new BankAccount("checking", 275);  // only savings
+		BankAccount account4 = new BankAccount("checking", 275);  // only checking
 		System.out.println("****Account 1****");
 		account1.depositMoney("savings", 175);
 		account1.depositMoney("checking", 475);

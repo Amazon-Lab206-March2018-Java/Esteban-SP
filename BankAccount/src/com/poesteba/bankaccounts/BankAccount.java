@@ -45,12 +45,15 @@ public class BankAccount {   // Create a BankAccount class
 		BankAccount.accountsCounter++;  // In the constructor, be sure to increment the account count.
 		if (type == "savings") {
 			savingsBalance=amount;
+			BankAccount.allFunds+=(amount);
 			System.out.println("The Bank Account #"+accountNumber+" was created successfully and the amount of $"+amount+" was deposited in your savings account");
 		} else if (type == "checking"){
 			checkingBalance=amount;
+			BankAccount.allFunds+=(amount);
 			System.out.println("The Bank Account #"+accountNumber+" was created successfully and the amount of $"+amount+" was deposited in your checking account");
+		}else {
+		System.out.println("Please make sure that the type of deposit is either 'savings' or 'checking'");
 		}
-		BankAccount.allFunds+=(amount);
 	}
 	public BankAccount(double checking, double savings) {
 		accountNumber = newRandAccountNumber();  // In the constructor, call the private method from above so that each user has a random ten digit account.
@@ -110,18 +113,17 @@ public class BankAccount {   // Create a BankAccount class
 			if (amount<=this.getBalance(accountType)) {
 				if (accountType=="savings") {
 					savingsBalance-=amount;
-					BankAccount.allFunds-=(amount);
 					System.out.println("The amount of $"+amount+" was withdrawn from your savings account");
 				}else if (accountType=="checking"){
 					checkingBalance-=amount;
-					BankAccount.allFunds-=(amount);
 					System.out.println("The amount of $"+amount+" was withdrawn from your checking account");
 				}
+				BankAccount.allFunds-=(amount);
 			}else {
-				System.out.println("You dant have enough funds for the transaction");
+				System.out.println("You don't have enough funds for the transaction");
 			}
 		}else {
-			System.out.println("Please make sure that the type of deposit is either 'savings' or 'checking'");
+			System.out.println("Please make sure that the type of withdrawal is either 'savings' or 'checking'");
 		}
 	}
 	public double getTotalFunds() {
