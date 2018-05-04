@@ -27,30 +27,30 @@ public class Character {
 	//Each Character can be built one of two ways.
 	//Either with all the attributes provided
 	public Character(String name, double weight, String famous_saying) {
-		setName(name);
-		setWeight(weight);
-		setFamous_saying(famous_saying);
+		this.name = name;
+		this.weight = weight;
+		this.famous_saying = famous_saying;
 	}
 	//or with defaults you create.
 	public Character(){  // default name "unknownCharacter", default weight is -1, default message "May the 4th be with you!"
-		setName("unknownCharacter");
-		setWeight(-1);
-		setFamous_saying("May the 4th be with you!");
+		this.name = "unknownCharacter";
+		this.weight = -1;
+		this.famous_saying = "May the 4th be with you!";
 	}
 	public Character(String name) {  // name provided, default weight is -1, default message "May the 4th be with you!"
-		setName(name);
-		setWeight(-1);
-		setFamous_saying("May the 4th be with you!");
+		this.name = name;
+		this.weight = -1;
+		this.famous_saying = "May the 4th be with you!";
 	}
 	public Character(String name, double weight) { // name and weight provided, default message "May the 4th be with you!"
-		setName(name);
-		setWeight(weight);
-		setFamous_saying("May the 4th be with you!");
+		this.name = name;
+		this.weight = weight;
+		this.famous_saying = "May the 4th be with you!";
 	}
 	public Character(String name, String famous_saying) {  //  name and saying provided, default weight -1
-		setName(name);
-		setWeight(-1);
-		setFamous_saying(famous_saying);
+		this.name = name;
+		this.weight = -1;
+		this.famous_saying = famous_saying;
 	}
 	//*Each Character should be able to introduce themselves to another Character, such as "Hello, Luke Skywalker, I'm Han Solo."
 	public String sayHi(Character receiver) {
