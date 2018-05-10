@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+h1 {
+  color: white;
+  text-shadow:
+   -1px -1px 0 #666,  
+    1px -1px 0 #666,
+    -1px 1px 0 #666,
+     1px 1px 0 #666;
+}
+h5 {
+  color: gray;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+a {
+  font-size: 25px;
+  color: blue;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+.green {
+	background: green;
+}
