@@ -18,7 +18,7 @@ public class SurveyController {
 		m.addAttribute("location", location);
 		m.addAttribute("language", language);
 		m.addAttribute("comments", comments);
-		if(m.asMap().containsValue("Java")) {
+		if(m.asMap().get("language").equals("Java")) {
 			return "java.jsp";
 		}
 		return "result.jsp";
