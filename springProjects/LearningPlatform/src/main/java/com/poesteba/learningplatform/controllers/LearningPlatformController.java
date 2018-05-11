@@ -45,5 +45,19 @@ public class LearningPlatformController {
 			}
 			return "lesson.jsp";
 		}
+		@RequestMapping(value="m/{chapter}/0666/{quizNumber}")
+		public String quiz(@PathVariable("chapter") String discard, @PathVariable("quizNumber") String quizNumber, Model m) {
+			switch(quizNumber) {
+				case "0666":{  // Coding Forms Quiz
+					m.addAttribute("quizText","The Goal for this Quiz is to test your ability for Coding Forms with a few easy examples");
+					break;
+				}
+				case "0069":{  // Punch Cards Quiz
+					m.addAttribute("quizText","The Goal for this Quiz is to test your ability to create Punch Cards");
+					break;
+				}
+			}
+			return "quiz.jsp";
+		}
 }
 

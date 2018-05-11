@@ -26,14 +26,14 @@
 			</ul>
 		</div>
 		<div class="container border">
-			<div class="form-check">
+		<div class="form-check">
 			  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
 			  <label class="form-check-label" for="defaultCheck1">
-			    Assignment completed
+			    Quiz completed
 			  </label>
 			</div>	
 			  <div class="container border mt-2">
-				<p><c:out value="${assignmentText}"/></p>
+				<p><c:out value="${quizText}"/></p>
 			  </div>
 		</div>
     </div>

@@ -18,7 +18,9 @@
 			<ul class="list-inline mr-0 mb-0">
 				<li class="list-inline-item active"><a class="nav-link" href="/m/38/0553/0733">Set up</a></li>
 				<li class="list-inline-item active"><a class="nav-link" href="/m/38/0483/0345">Forms</a></li>
+				<li class="list-inline-item active"><a class="nav-link" href="/m/38/0666/0666">Forms Quiz</a></li>
 				<li class="list-inline-item active"><a class="nav-link" href="/m/38/0553/0342">Cards</a></li>
+				<li class="list-inline-item active"><a class="nav-link" href="/m/38/0666/0069">Cards Quiz</a></li>
 				<li class="list-inline-item active"><a class="nav-link" href="/m/26/0553/0348">Advanced</a></li>
 				<li class="list-inline-item active"><a class="nav-link" href="/m/26/0483/2342">Binary</a></li>
 			</ul>
