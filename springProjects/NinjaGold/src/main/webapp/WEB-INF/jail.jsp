@@ -14,8 +14,9 @@
 </head>
 <body>
     <div id="wrapper">
-        <h1>Welcome to the Ninja Money Generator Jail</h1>
-     	<h2>Your debt is <c:out value="${your_gold}"/>!</h2>
+        <h1>Welcome to the Ninja Money Generator</h1>
+        <h1 class="jail">Jail</h1>
+     	<h2>Your debt is <span class="jail"><c:out value="${your_gold}"/></span>!</h2>
         <h3>Sorry, game over!</h3>
         <a href="/reset">Reset!</a>
 	</div>

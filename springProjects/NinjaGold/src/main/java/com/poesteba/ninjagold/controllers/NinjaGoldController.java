@@ -36,6 +36,7 @@ public class NinjaGoldController {
 		return "home.jsp";
 	}
 	@RequestMapping(value="/process_money", method=RequestMethod.POST)
+	@SuppressWarnings("unchecked")
 	public String process(Model m, HttpSession sesh,@RequestParam("building") Integer building){
 		if (sesh.getAttribute("results")==null) {
 			ArrayList<Triplet<String,String,Date>> results = new ArrayList<Triplet<String,String,Date>>();
@@ -89,7 +90,7 @@ public class NinjaGoldController {
 				ArrayList<Triplet<String,String,Date>> results = (ArrayList<Triplet<String,String,Date>>) sesh.getAttribute("results");
 				Date timestamp = new Date();
 				Integer amount = rand.nextInt((20 - 5) + 1) + 5; 
-				sesh.setAttribute("your_gold", (((Integer) sesh.getAttribute("your_gold"))+amount));
+				sesh.setAttribute("your_gold", (((Integer) sesh.getAttribute("your_gold"))-amount));
 				results.add(0, Triplet.with("lost","Entered a Spa and spent "+amount+" golds in a full massage",timestamp));
 				sesh.setAttribute("results", results);
 				break;
@@ -104,7 +105,7 @@ public class NinjaGoldController {
 	@RequestMapping("/reset")
 	public String reset(Model m, HttpSession sesh) {
 		sesh.setAttribute("your_gold", (Integer)0);
-		ArrayList<Pair<String,String>> results = new ArrayList<Pair<String,String>>();
+		ArrayList<Triplet<String,String,Date>> results = new ArrayList<Triplet<String,String,Date>>();
 		sesh.setAttribute("results", results);
 		return "redirect:/gold";
 	}

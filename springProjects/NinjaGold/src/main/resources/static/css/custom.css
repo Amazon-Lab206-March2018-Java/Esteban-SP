@@ -7,6 +7,14 @@
 #wrapper>label{
     margin-left: 15px;
 }
+.jail {
+  color: red;
+  text-shadow:
+   -1px -1px 0 #666,  
+    1px -1px 0 #666,
+    -1px 1px 0 #666,
+     1px 1px 0 #666;
+}
 h1{
     text-align: center;
 
