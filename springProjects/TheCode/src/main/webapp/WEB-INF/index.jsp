@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container text-center mt-5">
-    	<p class="red-text"><c:out value="${errors}"></c:out></p>
+    	<p class="error"><c:out value="${errors}"></c:out></p>
     	<form action="/check_code" method="post">
     		<label for="codeGuess">What is the code?</label>
     		<br>
