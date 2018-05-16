@@ -15,8 +15,8 @@
 <p><c:out value="${language.name}"/></p>
 <p><c:out value="${language.creator}"/></p>
 <p><c:out value="${language.currentVersion}"/></p>
-<p><a href="/languages/edit/${langID}">Edit</a></p>
-<p><a href="/languages/delete/${langID}">Delete</a></p>
+<p><a href="/languages/edit/${language.id}">Edit</a></p>
+<p><a href="/languages/delete/${language.id}">Delete</a></p>
 
 </body>
 </html>

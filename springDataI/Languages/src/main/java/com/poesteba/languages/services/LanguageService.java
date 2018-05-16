@@ -1,40 +1,40 @@
 package com.poesteba.languages.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import com.poesteba.languages.models.Language;
+import com.poesteba.languages.repositories.LanguageRepository;
 
 @Service
 public class LanguageService {
-	private ArrayList<Language> languages = new ArrayList<Language>(Arrays.asList(
-			new Language("Java", "James Gosling", "1.8"),
-			new Language("Python", "Guido van Rossum", "3.6"),
-			new Language("HTML", "Tim Berners-Lee", "5.1")
-			));
+	private LanguageRepository lR;
+    public LanguageService(LanguageRepository lR){
+        this.lR = lR;
+    }
 	public ArrayList<Language> allLanguages() {
-	     return languages;
+	     return lR.findAll();
 	 }
-	public Language findLanguageByIndex(int index) {
-	    if (index < languages.size()){
-	        return languages.get(index);
-	    }else{
-	        return null;
-	    }
-	}
 	public void addLanguage(Language language) {
-		languages.add(language);
+		lR.save(language);
 	}
-	public void updateLanguage(int id, Language language) {
-	       if (id < languages.size()){
-	    	   languages.set(id, language);
-	       }
+	public Language findLanguageById(Long id) {
+		Optional<Language> optionalLanguage = lR.findById(id);
+		if (optionalLanguage.isPresent()){
+			return optionalLanguage.get();
+		}else{
+			return null;
+		}
+	}
+	public void updateLanguage(Language language) {
+		lR.save(language);
 	   }
-	public void destroyLanguage(int id) {
-	    if (id < languages.size()){
-	    	languages.remove(id);
+	public void destroyLanguage(Long id) {
+		Optional<Language> optionalLanguage = lR.findById(id);
+		if (optionalLanguage.isPresent()){
+	    	 lR.deleteById(id);
 	    }
 	}
 }

@@ -18,9 +18,9 @@ import com.poesteba.languages.services.LanguageService;
 @Controller
 public class Languages {
 	
-	private final LanguageService languageService;	
-    public Languages(LanguageService languageService){
-        this.languageService = languageService;
+	private final LanguageService lS;	
+    public Languages(LanguageService lS){
+        this.lS = lS;
     }
 	
 	@RequestMapping("/")
@@ -29,48 +29,48 @@ public class Languages {
 	}
 	@RequestMapping("/languages")
 	public String languages(Model m, @ModelAttribute("language") Language language) {
-		ArrayList<Language> languages = languageService.allLanguages();
+		ArrayList<Language> languages = lS.allLanguages();
 		m.addAttribute("languages", languages);
 		return "languages";
 	}
 	@PostMapping("/languages")
     public String createLanguage(@Valid @ModelAttribute("language") Language language, BindingResult result, Model m) {
-		ArrayList<Language> languages = languageService.allLanguages();
+		ArrayList<Language> languages = lS.allLanguages();
 		m.addAttribute("languages", languages);
         if (result.hasErrors()) {
             return "languages";
         }else{
             // Add the language            
-        	languageService.addLanguage(language);
+        	lS.addLanguage(language);
             return "redirect:/languages";
         }
     }
-	@RequestMapping("/languages/{langID}")
-	public String showLanguage(@PathVariable("langID") int langID,Model m) {
-		Language language = languageService.findLanguageByIndex(langID);
+	@RequestMapping("/languages/{id}")
+	public String showLanguage(@PathVariable("id") Long id,Model m) {
+		Language language = lS.findLanguageById(id);
 		m.addAttribute("language", language);
 		return "showLanguage";
 	}
-	@RequestMapping("/languages/edit/{langID}")
-	public String editLanguage(@PathVariable("langID") int langID, @Valid @ModelAttribute("language") Language l,Model m) {
-		Language language = languageService.findLanguageByIndex(langID);
+	@RequestMapping("/languages/edit/{id}")
+	public String editLanguage(@PathVariable("id") Long id, @Valid @ModelAttribute("language") Language lang,Model m) {
+		Language language = lS.findLanguageById(id);
 		m.addAttribute("language", language);
 		return "editLanguage";
 	}
 	@PostMapping("/languages/edit/{id}")
-    public String updateLanguage(@PathVariable("langID") int langID, @Valid @ModelAttribute("language") Language l, BindingResult result,Model m) {
+    public String updateLanguage(@PathVariable("id") Long id, @Valid @ModelAttribute("language") Language lang, BindingResult result,Model m) {
         if (result.hasErrors()) {
-        	Language language = languageService.findLanguageByIndex(langID);
+        	Language language = lS.findLanguageById(id);
     		m.addAttribute("language", language);
             return "editLanguage";
         }else{
-        	languageService.updateLanguage(langID, l);
+        	lS.updateLanguage(lang);
             return "redirect:/languages";
         }
     }
-	@RequestMapping("/languages/delete/{langID}")
-	public String deleteLanguage(@PathVariable("langID") int langID) {
-		languageService.destroyLanguage(langID);
+	@RequestMapping("/languages/delete/{id}")
+	public String deleteLanguage(@PathVariable("id") Long id) {
+		lS.destroyLanguage(id);
 		return "redirect:/languages";
 	}
 }

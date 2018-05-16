@@ -10,16 +10,26 @@
 <body>
 
 	<table class="table">
-		<c:forEach items="${books}" var="book" varStatus="loop">
+	<tr>
+	<th>ID</th>
+	<th>Title</th>
+	<th>Description </th>
+	<th>Language</th>
+	<th>Number of Pages</th>
+	<th>Actions</th>
+	</tr>
+		<c:forEach items="${books}" var="book">
 <tr>    
+    <td><c:out value="${book.id}"/></td>    
     <td><c:out value="${book.title}"/></td>
     <td><c:out value="${book.description}"/></td>
     <td><c:out value="${book.language}"/></td>
     <td><c:out value="${book.numberOfPages}"/></td>
-    <td><a href="/books/delete/${loop.index}">Delete</a></td>
+    <td><a href="/books/edit/${book.id}">Edit</a>  <a href="/books/delete/${book.id}">Delete</a></td>
 </tr>
 </c:forEach>
 </table>
+<p><a href="/books/new">Add New Book</a></p>
 
 </body>
 </html>
